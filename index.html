@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300&family=Rowdies&display=swap" rel="stylesheet">
+        <style>
+            @font-face {
+                font-family: proxima;
+                font-weight: bold;
+                src: url("css/proxima.otf") format("opentype");
+            }
+            @font-face {
+                font-family: gumbo;
+                src: url("css/gumbo/Gumbo_DEMO.otf") format("opentype");
+            }
+            @font-face {
+                font-family: hey;
+                src: url("css/hey/heyMom!heyDadl!\ Regular.ttf") format("opentype");
+            }
+            @font-face {
+                font-family: baloo;
+                font-weight: bold;
+                src: url("css/Baloo/Baloo-Regular.ttf") format("opentype");
+            }
+            body{
+                background-image: url(images/bg.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding: 0;
+                margin: 0;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            .header-social-icon,.header-social-icon2{
+                position: absolute;
+                right: 180%;
+                top: 40px;
+                margin:0;
+                width:max-content;
+            }
+            .header-social-icon a, .header-social-icon2 a{
+                display: inline-block;
+            }
+            .header-social-icon a img,.header-social-icon2 a img{
+                width:28px;
+                height:28px
+            }
+            .header-social-icon a:nth-child(1),.header-social-icon2 a:nth-child(1){
+                margin-right:13px
+            }
+            .header{
+                text-align: center;
+                padding-top:13px;
+                width: max-content;
+                margin:auto;
+                position: relative;
+            }
+            .header-logo{
+                width:245px;
+            }
+            .yolo-buy,.chart{
+                background: #79C54F;
+                border: 1.44615px solid #5A8D3E;
+                box-shadow: 0.723077px 1.44615px 0px #4B7BD8;
+                border-radius: 10px;
+                font-family: gumbo;
+                padding:6px 6px 4px 6px;
+                font-size:12px;
+                letter-spacing: 0.5px;
+                color:rgb(52, 50, 50);
+                text-decoration: none;
+                margin-top:30px;
+                vertical-align: top;
+                display: inline-block;
+                margin-left:5px;
+            }
+            .yolo-buy{
+                width:110px;
+            }
+            .chart{
+                width:75px;
+            }
+            .header-button{
+                position:absolute;
+                top:10px;
+                left:115%;
+                width:max-content;
+            }
+            .footer-button{
+                position:absolute;
+                top:35px;
+                left:115%;
+                width:max-content;
+            }
+            .header-nav{
+                list-style: none;
+                color:white;
+                margin:0;
+                padding:0;
+                padding-top:12px;
+                font-family: gumbo;
+            }
+            .header-nav li{
+                display: inline-block;
+                padding:0 4px;
+            }
+            .header-nav a{
+                text-decoration: none;
+                color:white;
+                letter-spacing:1px;
+                font-size:10px;
+            }
+            .content{
+                width:100%;
+                padding-top:30px;
+                text-align: center;
+            }
+            .socials a{
+                display: inline-block;
+                margin:0 2px;
+            }
+            .socials a img{
+                width:33px;
+            }
+            .missed, .head2{
+                color:#3C3C3C;
+                font-family: gumbo;
+                letter-spacing: 0.5px;
+                font-size: 15px;
+                margin-bottom:3px;
+                margin-top:20px;
+                font-weight: 500;
+            }
+            .fuck-it{
+                border-radius:20px;
+                background:white;
+                padding:2px 10px 0px 10px;
+                color:#79C54F;
+                font-family: gumbo;
+                letter-spacing: 1px;
+                font-size: 15px;
+            }
+            .head2{
+                margin-top:20px;
+                font-size: 21px;
+                letter-spacing: 0.2px;
+            }
+            .card{
+                width:60%;
+                padding:0 50px 15px 50px;
+                margin:20px auto;
+                background-image: url(images/recy.png);
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+            .card .title{
+                font-family: gumbo;
+                font-size:42px;
+                font-weight:500;
+                color:#3C3C3C;
+                letter-spacing: 0.6px;
+                padding:15px 0 0px 0;
+                margin-bottom:10px;
+            }
+            .card-sub-title, .pd{
+                display: flex;
+                font-size: 16px;
+                line-height: 25px;
+                font-family: 'Inter', sans-serif;
+            }
+            .card-sub-title2{
+                font-size: 16px;
+                display: none;
+                line-height: 25px;
+                font-family: 'Inter', sans-serif;
+            }
+            .card-sub-title div, .card-sub-title2 div, .pd label{
+                text-align: center;
+                width: 50%;
+            }
+            .card-sub-title2 div{
+                padding-top:20px;
+            }
+            .head2{
+                padding:0 5px;
+                font-size: 20px;
+            }
+            .double{
+                display: flex;
+                padding-top:10px;
+            }
+            .double .white-card{
+                background-color: white;
+                border-radius:35px;
+                padding:10px;
+                width:52%;
+                text-align: left;
+            }
+            .double .white-card h5{
+                font-family: baloo;
+                margin:0;
+                margin-bottom:-8px;
+                color:#5c5c5c;
+                font-size: 16px;
+                padding-left:6px;
+            }
+
+            .double .white-card h3{
+                font-family: gumbo;
+                font-size: 20px;
+                font-weight: 500;
+                margin-top:10px;
+                color:#393939;
+                margin-bottom:10px;
+                padding-left:6px;
+                text-transform: uppercase;
+            }
+
+            .double .white-card ul{
+                font-family: baloo;
+                color:#5c5c5c;
+                font-size: 15px;
+                text-align: left;
+                padding-left:30px;
+            }
+            .frog{
+                width:45%;
+            }
+            .frog .green{
+                width:270px;
+                margin:auto;
+                background-image: url(images/circle.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                height:270px;
+                position:relative;
+            }
+            .arc{
+                width: 120px;
+                position: absolute;
+                top:0;
+                left:0;
+                right:0;
+                margin:auto;
+            }
+            .frog-img{
+                width: 120px;
+                height:120px;
+                position: absolute;
+                top:0;
+                left:0;
+                bottom:0;
+                right:0;
+                margin:auto;
+            }
+            .white-card div{
+                color:#79C54F;
+                background-color: #EFEFEF;
+                border-radius: 50px;
+                width:80%;
+                font-family: gumbo;
+                padding:15px 20px;
+                line-height: 24px;
+                font-size: 20px;
+                font-weight: 500;
+                margin-left:10px;
+                margin-bottom:10px;
+                letter-spacing: 0.6;
+                text-transform: uppercase;
+            }
+            .frog span{
+                font-size: 16px;
+                line-height: 25px;
+                font-family: 'Inter', sans-serif;
+            }
+            .paper-roll img{
+                width: 100%;
+            }
+            .paper-roll{
+                width: 60%;
+                margin: auto;
+                position: relative;
+            }
+            .paper-roll .div{
+                position: absolute;
+                top: 16%;
+                left:0;
+                width: 100%;
+                text-align: center;
+            }
+            .paper-roll .div h1{
+                font-size: 42px;
+                font-family: gumbo;
+                color:#3C3C3C;
+                margin-bottom: 5px;
+                margin-top: 35px;
+                letter-spacing: 1px;
+            }
+            .paper-roll .div .table{
+                padding-top:10px;
+                font-family: baloo;
+                width:50%;
+                margin:auto;
+                line-height: 15px;
+                font-size: 12px;
+                display: flex;
+                color:#4f4f4f;
+            }
+            .paper-roll .div .table div{
+                width: 50%;
+                text-align: left;
+            }
+            .paper-roll .div .table .t1{
+                width: 40%;
+                margin-left: 10%;
+            }
+            .paper-roll .div label{
+                font-family: proxima;
+            }
+            .alerts{
+                padding-top:40px;
+                padding-bottom:40px;
+                width: 43%;
+                margin: auto;
+            }
+            .alerts h1{
+                font-family: gumbo;
+                color:#3C3C3C;
+                font-size: 45px;
+                font-weight: 500;
+                text-align: center;
+            }
+            .yellow{
+                background-color: #FFEA9D;
+            }
+            .alerts .cd{
+                margin-top:10px;
+                border-radius: 25px;
+                padding:15px;
+                display: flex;
+                text-align: left;
+                align-items: center;
+            }
+            .alerts .cd img{
+                width:90px;
+                margin-left:10px;
+            }
+            .alerts .cd h2{
+                text-transform: uppercase;
+                font-family: gumbo;
+                font-size: 16px;
+                margin-bottom:0;
+                margin-top:5px;
+                color:#3C3C3C;
+                font-weight: 500;
+                padding-left: 25px;
+            }
+            .alerts .cd p{
+                font-family: baloo;
+                color:#494848;
+                margin:0;
+                padding:0;
+                font-size: 12px;
+                padding-left: 25px;
+            }
+            .green-bg{
+                background-color: #9DFFC4;
+            }
+            .blue{
+                background-color: #9ED1FF;
+            }
+            .pink{
+                background-color: #C0C8FF;
+            }
+            .mt-0{
+                margin-top:0;
+            }
+            .copyright{
+                font-family: gumbo;
+                color:white;
+                font-size: 10px;
+                letter-spacing: 0.6px;
+                padding:25px 0;
+                width: 100%;
+                text-align: center;
+                word-spacing: 2px;
+                font-weight: 400;
+            }
+            .unknown{
+                width:110px !important;
+                margin-right:-20px;
+            }
+            .roll2{
+                display: none;
+            }
+            @media screen and (max-width:900px) {
+                .header-button{
+                    position: relative;
+                    margin: auto;
+                    top: 0;
+                    left: inherit;
+                }
+                .header-social-icon,.header-social-icon2{
+                    right:inherit;
+                    left: 120%;
+                }
+                .card{
+                    padding: 0;
+                    border-radius: 120px;
+                    overflow: hidden;
+                    width:90%;
+                    padding-bottom: 30px;
+                    background-size: 100% 100%;
+                }
+
+                .double{
+                    display: block;
+                }
+                .double .white-card{
+                    width: 97%;
+                    border-radius: 60px;
+                }
+                .card-sub-title{
+                    display: none;
+                }
+                .white-card h3{
+                    text-align: center;
+                }
+                .frog{
+                    width: 100%;
+                }
+                .frog .green{
+                    margin-top: 30px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .paper-roll{
+                    margin-top:-50px;
+                    width: 100%;
+                }
+                .div h1{
+                    margin:30px 0 !important;
+                }
+                .alerts{
+                    width: 90%;
+                }
+                .alerts .cd{
+                    margin-top: 15px;
+                }
+                .copyright{
+                    padding:70px 0 30px 0;
+                }
+                .footer-button{
+                    left:0;
+                    right:0;
+                    top:inherit;
+                    margin: auto;
+                }
+                .card-sub-title2{
+                    display: block;
+                }
+            }
+            @media screen and (max-width:600px) {
+                .header-social-icon,.header-social-icon2{
+                    left:inherit;
+                    right:15px;
+                }
+                .header-social-icon a:nth-child(1), .header-social-icon2 a:nth-child(1){
+                    margin-right: 5px;
+                }
+                .header-social-icon{
+                    top:30px;
+                }
+                .header-social-icon2{
+                    top:inherit;
+                    margin-top:20px;
+                }
+                .roll1{
+                    display: none;
+                }
+                .roll2{
+                    display: block;
+                }
+                .double .white-card{
+                    width: 94%;
+                }
+                .card{
+                    width: 95%;
+                    border-radius:70px;
+                }
+                .header-button{
+                    text-align: center;
+                }
+                .card .title{
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                }
+                .white-card div{
+                    font-size: 18px;
+                }
+                .white-card h3{
+                    width: 90%;
+                    margin: auto;
+                }
+                .header{
+                    text-align: left;
+                    width: 100%;
+                    position: inherit;
+                }
+                .header-logo{
+                    width: 200px;
+                }
+                body{
+                    background-size: 250%;
+                    background-position:55% 0;
+                    background-color: #7dd4ff;
+                }
+                .paper-roll .div h1{
+                    font-size: 30px;
+                    margin-bottom: 5px !important;
+                }
+                .paper-roll .div .table{
+                    width: 75%;
+                    font-size: 11px;
+                }
+                .paper-roll .div label{
+                    font-size: 14px;
+                }
+                .alerts .cd{
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+                .alerts .cd img{
+                    width: 70px;
+                }
+                .header-nav{
+                    width: max-content;
+                    margin: auto;
+                    margin-top:10px;
+                }
+                .alerts .cd p{
+                    font-size: 10px;
+                }
+                .header-button a{
+                    font-size: 16px;
+                    border-radius: 12px;
+                }
+                .unknown{
+                    width:90px !important;
+                    margin-right:-15px;
+                }
+                .header-logo{
+                    margin-left:10px;
+                }
+                .yolo-buy, .chart{
+                    margin-top: 20px;
+                }
+                .paper-roll .div label{
+                    margin-top: -25px;
+                    vertical-align: top;
+                }
+                .paper-roll .div .table{
+                    padding-top: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <label class="header-social-icon">
+                <a href=""><img src="images/twit.png"></a>
+                <a href=""><img src="images/teleg.png"></a>
+            </label>
+            <img src="images/logo.png" class="header-logo">
+            <div class="header-button">
+               <a href="" class="yolo-buy">YOLO BUY</a>
+                <a href="" class="chart">CHART</a> 
+            </div>
+            <div>
+                <ul class="header-nav">
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">YOLONOMICS</a></li>
+                    <li><a href="">ROADMAP</a></li>
+                    <li><a href="">HOW TO BUY</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="socials">
+                <a href=""><img src="images/twitter2.png"></a>
+                <a href=""><img src="images/telegram2.png"></a>
+                <a href=""><img src="images/icon1.png"></a>
+                <a href=""><img src="images/icon2.png"></a>
+                <a href=""><img src="images/icon3.png"></a>
+                <a href=""><img src="images/icon4.png"></a>
+            </div>
+            <h3 class="missed">
+                MISSED THE LATEST PUMPS?
+            </h3>
+            <span class="fuck-it">FUCK IT!</span>
+            <h3 class="head2">
+                YOLOPEPE IS HERE TO MAKE THE LAST AND<br>FINAL PEPE MILLIONAIRES
+            </h3>
+            <div class="card">
+                <h1 class="title">YOLONOMICS</h1>
+                <div class="card-sub-title">
+                    <div style="width:55%">
+                        Token Supply:<br>
+                        420,000,000,000,000
+                    </div>
+                    <div class="pd" style="width:45%">
+                        <label>
+                            Project development<br>
+                            <small>2%</small>
+                        </label>
+                        <label>
+                            CEX Listings<br>
+                            <small>6.5%</small>
+                        </label>
+                    </div>
+                </div>
+                <div class="double">
+                    <div class="white-card">
+                        <h3>No Taxes, No Bullshit. It’s that simple.</h3>
+                        <h5>THE LAST YOLO RUN TO $100M MC:</h5>
+                        <ul>
+                            <li>No fucking taxes</li>
+                            <li>No presale, private sale or bullshit allocations</li>
+                            <li>Liquidity burnt forever</li>
+                            <li>91.5% of tokens sent to liquidity pool and burnt</li>
+                            <li>6.5% for CEX listings</li>
+                            <li>2% for project development</li>
+                        </ul>
+                        <div>
+                            YOLO pepe is made to print the final pepe meta millionaires.
+                        </div>
+                    </div>
+                    <div class="card-sub-title2">
+                        <div style="width:100%">
+                            Token Supply:<br>
+                            420,000,000,000,000
+                        </div>
+                        <div class="pd" style="width:100%">
+                            <label>
+                                Project development<br>
+                                <small>2%</small>
+                            </label>
+                            <label>
+                                CEX Listings<br>
+                                <small>6.5%</small>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="frog">
+                        <div class="green">
+                            <img src="images/arc.png" class="arc">
+                            <img src="images/Mask group.png" class="frog-img">
+                        </div><br>
+                        <span>Liquidity Pool<br>91.5%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="paper-roll">
+                <img src="images/roadmap.png" class="roll1">
+                <img src="images/Group 26.png" class="roll2">
+                <div class="div">
+                    <h1>Roadmap</h1>
+                    <label>PHASE 1: YOLO BEGINNINGS</label>
+                    <div class="table">
+                        <div class="t1">
+                            Launch<br>
+                            MEME<br>
+                            CMC & CG Listings<br>
+                            500+ Holders
+                        </div>
+                        <div class="t2">
+                            Get $YOLOPEPE trending<br>worldwide<br>
+                            $YOLOPEPE Lambo Club<br>Invitations<br>
+                            started
+                        </div>
+                    </div>
+                    <br>
+                    <label>PHASE 2: TAKEOFF</label>
+                    <div class="table">
+                        <div class="t1">
+                            Exchange listing spree<br>
+                            MEME<br>
+                            Marketing blast (NYC Takeover)<br>
+                            Partnerships & alliances
+                        </div>
+                        <div class="t2" style="padding-left:10px">
+                            $YOLOPEPES secret inauguration<br>$YOLOPEPE casino launch<br>
+                            3,000+ holders
+                        </div>
+                    </div>
+                    <br>
+                    <label>PHASE 3: TRUST FUND SHIT</label>
+                    <div class="table">
+                        <div class="t1">
+                            TIER 1 Exchange listings<br>
+                            Worldwide meme marketing<br>
+                            campaigns<br>
+                            YOLOPEPE IRL brand merge
+                        </div>
+                        <div class="t2" style="padding-left:10px">
+                            1M+ holders<br>YOLOPEPE top 10<br>token ranked by<br>
+                            1M+ holders<br>
+                            YOLOPEPE top 10 token<br>ranked by market cap
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alerts">
+                <h1 class="how-to-buy">HOW TO BUY</h1>
+                <div class="cd yellow">
+                    <div>
+                        <img src="images/wallet.png">
+                    </div>
+                    <div>
+                        <h2 class="mt-0">create a wallet</h2>
+                        <p>
+                            Download metamask or your wallet of choice from the app store or google play store for free. Desktop users, download the google chrome extension by going to metamask.io.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cd green-bg">
+                    <div>
+                        <img src="images/eth.png">
+                    </div>
+                    <div>
+                        <h2 class="mt-0">Get Some ETH</h2>
+                        <p>
+                            Have ETH in your wallet to switch to $PEPE. If you don’t have any ETH, you can buy directly on metamask, transfer from another wallet, or buy on another exchange and send it to your wallet.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cd blue">
+                    <div>
+                        <img src="images/uni.png">
+                    </div>
+                    <div>
+                        <h2>Go to Uniswap</h2>
+                        <p>
+                            Connect to Uniswap. Go to app.uniswap.org in google chrome or on the browser inside your Metamask app. Connect your wallet. Paste the $PEPE token address into Uniswap, select Pepe, and confirm. When Metamask prompts you for a wallet signature, sign.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cd pink">
+                    <div>
+                        <img src="images/unkown.png" class="unknown">
+                    </div>
+                    <div>
+                        <h2>Switch ETH for $PEPE</h2>
+                        <p>
+                            Switch ETH for $PEPE. We have ZERO taxes so you don’t need to worry about buying with a specific slippage, although you may need to use slippage during times of market volatility.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <label class="header-social-icon2">
+                <a href=""><img src="images/twit.png"></a>
+                <a href=""><img src="images/teleg.png"></a>
+            </label>
+            <img src="images/logo.png" class="header-logo">
+            <div class="footer-button">
+                <ul class="header-nav">
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">YOLONOMICS</a></li>
+                    <li><a href="">ROADMAP</a></li>
+                    <li><a href="">HOW TO BUY</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            $YOLOPEPE has no association with Matt Furie or Pepe the Frog.
+            <br>
+            YOLOPEPE is for those who missed the pumps to the top
+            <br>
+            and got left empty handed... This is the LAST YOLO IN PEPE.
+            <br>
+            <br>
+            © 2023 by PEPE. All rights reserved!
+        </div>
+    </body>
+</html>
