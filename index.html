@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>YOLOPEPE</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,13 +27,17 @@
                 src: url("css/Baloo/Baloo-Regular.ttf") format("opentype");
             }
             body{
-                background-image: url(images/bg.png);
-                background-size: cover;
-                background-repeat: no-repeat;
                 padding: 0;
                 margin: 0;
+                overflow: hidden;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
+            }
+            .wrap{
+                background-image: url(images/bg2.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                visibility: hidden;
             }
             .header-social-icon,.header-social-icon2{
                 position: absolute;
@@ -513,7 +518,7 @@
                 .header-logo{
                     width: 200px;
                 }
-                body{
+                .wrap{
                     background-size: 250%;
                     background-position:55% 0;
                     background-color: #7dd4ff;
@@ -566,9 +571,30 @@
                     padding-top: 0;
                 }
             }
+            #loader {
+            border: 7px solid #d1d7d8; /* Light grey */
+            border-top: 7px solid #5edb34; /* Blue */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            top:45%;
+            left:0;
+            right:0;
+            margin: auto;
+            animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+            }
+            
         </style>
     </head>
-    <body>
+    <body id="app">
+        <div id="loader"></div>
+        <div class="wrap" id="wrap">
         <div class="header">
             <label class="header-social-icon">
                 <a href=""><img src="images/twit.png"></a>
@@ -790,5 +816,13 @@
             <br>
             © 2023 by PEPE. All rights reserved!
         </div>
+        </div>
+        <script>
+            setTimeout(function(){
+                document.getElementById('loader').style.display='none';
+                document.getElementById('wrap').style.visibility="visible";
+                document.getElementById('app').style.overflow="auto";
+            },1000)
+        </script>
     </body>
 </html>
